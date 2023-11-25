@@ -17,11 +17,7 @@ def get_input():
 
 
 def test_input(value):
-    try:
-        int(value)
-        return True
-    except ValueError:
-        return False
+    return value.isnumeric()
     
 
 def str_to_int(value):
