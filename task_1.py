@@ -7,13 +7,6 @@
 # тело которой содержит команду вывода на экран слова "Положительное". Если число отрицательное,
 # то вызывается функция negative(), ее тело содержит выражение вывода на экран слова "Отрицательное".
 
-def test(num):
-    if num >= 0:
-        positive()
-    else:
-        negative()
-
-
 def positive():
     print('Положительное')
 
@@ -21,6 +14,12 @@ def positive():
 def negative():
     print('Отрицательное')
 
+
+def test(num):
+    if num >= 0:
+        positive()
+    else:
+        negative()
 
 if __name__=="__main__":
     test(int(input("Введите число: ")))
