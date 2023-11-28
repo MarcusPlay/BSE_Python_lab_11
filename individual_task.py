@@ -64,11 +64,12 @@ if __name__ == "__main__":
     while True:
         command = input("~<| ").lower()
 
-        if command == 'exit':
-            break
+        match command:
+            case 'exit':
+                break
 
-        elif command == 'add':
-            add_user(users)
+            case 'add':
+                add_user(users)
 
-        elif command == 'list':
-            list_users(users)
+            case 'list':
+                list_users(users)
