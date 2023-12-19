@@ -94,7 +94,7 @@ if __name__ == "__main__":
     users = []
 
     while True:
-        command = input("~<| ").lower()
+        command = input("$ ").lower()
 
         match command:
             case 'exit':
