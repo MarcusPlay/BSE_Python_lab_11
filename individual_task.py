@@ -26,6 +26,30 @@ def add_user(users):
 
 
 def list_users(users):
+    line = '+-{}-+-{}-+-{}-+-{}-+'.format('-' * 4, '-' * 20, '-' * 18, '-' * 10)
+    print(line)
+    print('| {:^4} | {:^20} | {:^18} | {:^10} |'.format(
+            "№", 
+            "Название", 
+            "Номер телефона", 
+            "Дата"
+                )
+            )
+    print(line)
+            
+    for idx, user in enumerate(users, 1):
+        print(
+            '| {:^4} | {:^20} | {:^18} | {:^10} |'.format(
+                idx, 
+                user['name'], 
+                user['phone_number'], 
+                ' '.join(map(str, user['year']))
+                    )
+                )
+        print(line)  
+
+
+def select_users(users):
     print('Введите число месяца (1 - 12): ')
     while True:
         num = int(input())
@@ -33,18 +57,18 @@ def list_users(users):
             print("Значение введено неправильно! Попробуйте еще раз.")
         else:
             break
-    
+                
     line = '+-{}-+-{}-+-{}-+-{}-+'.format('-' * 4, '-' * 20, '-' * 18, '-' * 10)
     print(line)
     print('| {:^4} | {:^20} | {:^18} | {:^10} |'.format(
-        "№", 
-        "Название", 
-        "Номер телефона", 
-        "Дата"
+            "№", 
+            "Название", 
+            "Номер телефона", 
+            "Дата"
+                )
             )
-        )
     print(line)
-
+            
     for idx, user in enumerate(users, 1):
         if user['year'][1] == num:
             print(
@@ -56,6 +80,14 @@ def list_users(users):
                         )
                     )
             print(line)
+
+def help_users():
+    print("Список команд:\n")
+    print("add - добавить работника;")
+    print("list - вывести список работников;")
+    print("select <номер месяца> - запросить работников со стажем;")
+    print("help - отобразить справку;")
+    print("exit - завершить работу с программой.")
 
 
 if __name__ == "__main__":
@@ -73,3 +105,12 @@ if __name__ == "__main__":
 
             case 'list':
                 list_users(users)
+
+            case 'select':
+                select_users(users)
+
+            case 'help':
+                help_users()
+
+            case _:
+                print(f"Неизвестная команда {command}")
